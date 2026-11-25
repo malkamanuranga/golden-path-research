@@ -1,0 +1,30 @@
+﻿docker : 2026-11-25T06:48:53Z	INFO	[misconfig] Misconfiguration scanning 
+is enabled
+At line:3 char:1
++ docker run --rm -v "${PWD}:/src" aquasec/trivy config /src/generated/ ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (2026-11-25T06:4...ning is ena 
+   bled:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+2026-11-25T06:48:53Z	INFO	[checks-client] Need to update the checks bundle
+2026-11-25T06:48:53Z	INFO	[checks-client] Downloading the checks bundle...
+175.25 KiB / 234.57 KiB 
+[-------------------------------------------->______________] 74.71% ? p/s 
+?234.57 KiB / 234.57 KiB 
+[--------------------------------------------------------->] 100.00% ? p/s 
+?234.57 KiB / 234.57 KiB [---------------------------------------------] 
+100.00% 806.18 KiB p/s 500ms2026-11-25T06:48:57Z	INFO	Detected config 
+files	num=1
+
+Report Summary
+
+ΓöîΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö¼ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö¼ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÉ
+Γöé  Target  Γöé    Type    Γöé Misconfigurations Γöé
+Γö£ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö╝ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö╝ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöñ
+Γöé app.yaml Γöé kubernetes Γöé         0         Γöé
+ΓööΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö┤ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö┤ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÿ
+Legend:
+- '-': Not scanned
+- '0': Clean (no security findings detected)
+
