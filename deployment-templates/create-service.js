@@ -36,10 +36,16 @@ USER node
 CMD ["node", "server.js"]
 `,
 
-  'k8s/app.yaml': `apiVersion: apps/v1
+  'k8s/app.yaml': `apiVersion: v1
+kind: Namespace
+metadata:
+  name: apps
+---
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ${name}
+  namespace: apps
 spec:
   replicas: 2
   selector:
@@ -50,12 +56,35 @@ spec:
       labels:
         app: ${name}
     spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
+        seccompProfile:
+          type: RuntimeDefault
       containers:
         - name: app
-          image: ${name}:latest
+          image: ${name}:1.0.0
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            runAsUser: 10001
+            runAsGroup: 10001
+            capabilities:
+              drop: ["ALL"]
+            seccompProfile:
+              type: RuntimeDefault
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+            limits:
+              cpu: 200m
+              memory: 128Mi
           readinessProbe:
             httpGet:
               path: /health
@@ -65,6 +94,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: ${name}
+  namespace: apps
 spec:
   selector:
     app: ${name}
